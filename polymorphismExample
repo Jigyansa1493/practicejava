@@ -1,0 +1,27 @@
+class Car {
+  public void printColor() {
+    System.out.println("No color is given");
+  }
+}
+class Ferari extends Car {
+  public void printColor() {
+    System.out.println("RED ");
+  }
+}
+class Volvo extends Car {
+  public void printColor() {
+    System.out.println("BLACK");
+  }
+}
+public class Main {
+  public static void main(String[] args) {
+    Car car = new Car();
+    car.printColor();
+    car  = new Ferari();
+    // As per dynamic binding in polymorphism
+    // now printColor() of Ferari calss should be invoked
+    car.printColor();
+    car = new Volvo();
+    car.printColor();
+  }
+}
