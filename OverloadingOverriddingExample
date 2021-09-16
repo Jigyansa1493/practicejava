@@ -1,0 +1,44 @@
+class Calculation {
+    int result;
+    Calculation() {
+        result = 0;
+    }
+    int add(int a, int b) {
+        result = a + b;
+        return result;
+    }
+    
+    int sub(int a, int b) {
+        result = a-b;
+        return a-b;
+    }
+    
+    void printResult() {
+        System.out.println("parent calc result: "+result);
+    }
+}
+
+class ExtraCalc extends Calculation {
+    
+    //overloading
+    int add (int a, int b, int c) {
+        result = a+b+c;
+        return result;
+    }
+    
+    // overridding 
+    void printResult() {
+        System.out.println("child calc result: " + result);
+    }
+}
+
+public class OverloadingOverriddingExample {
+    public static void main(String args[]) {
+        ExtraCalc calc = new ExtraCalc();
+        calc.add(10, 20); // Invokes parent function
+        calc.printResult(); // Method overridding happened
+        
+        calc.add(10, 20, 30); // Overloaded method is called
+        calc.printResult();
+    }
+}
