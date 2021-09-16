@@ -1,0 +1,55 @@
+
+import java.lang.Integer;
+
+class StackDS {
+    int[] data;
+    int top = -1;
+    
+    StackDS(int max) {
+        data = new int[max];
+    }
+    
+    
+    boolean push(int item) {
+        
+        // check if the stack is full
+        // in that case we can't add more item
+        if (top == data.length-1) {
+            return false;
+        }
+        // Stack is not full
+        data[++top] = item;
+        return true;
+    }
+    
+    /* return: MIN_VALUE if stack is empty
+               data[top] if stack is not empty */
+    int pop() {
+        if (top == -1) {
+            return Integer.MIN_VALUE;
+        }
+        return data[top--];
+    }
+    
+    void print_stack() {
+        if (top <= -1) {
+            System.out.println("Stack is empty");
+            return;
+        }
+        
+        // Loop through all the elements from top to the base of the stack
+        for (int i = top; i >= 0; i--) {
+            System.out.println(" " + data[i]);
+        }
+        
+    }
+}
+
+public class MainClass {
+    public static void main(String args[]) {
+        StackDS stack = new StackDS(100);
+        stack.push(10);
+        stack.push(20);
+        stack.print_stack();
+    }
+}
